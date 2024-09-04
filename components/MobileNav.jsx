@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { CiMenuFries } from "react-icons/ci";
+import { Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
+import { CiMenuFries } from "react-icons/ci"
 
 const links = [
     {
@@ -26,12 +26,12 @@ const links = [
         name: 'Contact',
         path: '/contact'
     },
-];
+]
 
 
 
  const MobileNav = () => {
-   const pathname = usePathname();
+   const pathname = usePathname()
    return (
         <Sheet>
             <SheetTrigger className="flex justify-center items-center">
@@ -51,10 +51,11 @@ const links = [
                         return (
                             <Link href={link.path}
                                   key={index} 
-                                  className={`text-xl capitalize hover:text-accent transition-all`}>
+                                  className={`${link.path === pathname && "text-accent border-b-2 border-accent"}
+                                                text-xl capitalize hover:text-accent transition-all`}>
                                 {link.name}
                             </Link>
-                        );
+                        )
                     })}
                 </nav>
             </SheetContent>
@@ -62,5 +63,5 @@ const links = [
    )
  }
  
- export default MobileNav;
+ export default MobileNav
  
